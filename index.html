@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RED_ZONE-TERMUX</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  font-family: 'Courier New', monospace;
+  color: #00ffcc;
+  overflow: hidden;
+}
+
+/* Center */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card */
+.card {
+  width: 320px;
+  padding: 25px;
+  background: rgba(0,0,0,0.85);
+  border: 1px solid #00ffcc;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00ffcc;
+  animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+  50% { transform: rotateX(6deg); }
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: black;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #00ffcc, #00ffee);
+  box-shadow: 0 0 15px #00ffcc;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, white, transparent);
+  top: -100%;
+  left: -50%;
+  animation: lightning 2s infinite;
+}
+
+@keyframes lightning {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* Dashboard */
+#dashboard {
+  display: none;
+  padding: 20px;
+}
+
+.command {
+  background: #111;
+  margin: 10px 0;
+  padding: 12px;
+  border-left: 3px solid #00ffcc;
+  cursor: pointer;
+}
+
+.command:hover {
+  transform: scale(1.05);
+}
+
+/* Copy animation */
+.copied {
+  animation: glow 0.5s;
+}
+
+@keyframes glow {
+  50% { color: lime; transform: scale(1.2); }
+}
+
+/* Logout Screen */
+#logoutScreen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* Lightning background */
+#logoutScreen::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    120deg,
+    transparent,
+    transparent 20px,
+    rgba(0,255,255,0.2) 20px,
+    rgba(0,255,255,0.2) 40px
+  );
+  animation: flash 0.3s infinite;
+}
+
+@keyframes flash {
+  50% { opacity: 0.3; }
+}
+
+/* Message */
+.logout-text {
+  font-size: 24px;
+  text-align: center;
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee, 0 0 30px #00ffcc;
+  animation: zoom 2s ease;
+}
+
+@keyframes zoom {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="container" id="loginPage">
+  <div class="card">
+    <h2>RED_ZONE-TERMUX</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button class="btn" onclick="login()">⚡ LOGIN</button>
+    <button class="btn" onclick="register()">⚡ REGISTER</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <h2>⚡ RED_ZONE DASHBOARD</h2>
+
+  <div class="command" onclick="copyCmd(this)">
+        ____________ZPHISHER______________
+    
+apt update && apt upgrade -y
+   
+pkg install git 
+   
+git clone --depth=1 https://github.com/htr-tech/zphisher.git
+    
+cd zphisher
+    
+bash zphisher.sh 
+  </div>
+
+  <div class="command" onclick="copyCmd(this)">
+        ____________INDOCRACK_____________
+        Installation :
+apt update
+apt install git python python2 -y
+git clone https://github.com/htr-tech/indocrack.git
+cd indocrack
+> Run : python2 crack.py
+USERNAME : cra3kr
+PASSWORD : tahmidrayat
+  </div>
+
+  <div class="command" onclick="copyCmd(this)">
+        ____________IPTRACKER___________
+        Installation :
+apt update
+apt install git curl -y
+git clone git://github.com/htr-tech/track-ip.git
+cd track-ip
+> Run : bash trackip 
+  </div>
+  
+    <div class="command" onclick="copyCmd(this)">
+        __________SMS-BOMBER_________
+        𝑻𝒐𝒐𝒍 𝒊𝒏 𝑻𝒆𝒓𝒎𝒖𝒙 𝒐𝒓 𝑳𝒊𝒏𝒖𝒙 📱👨🏼‍💻
+
+1.𝙥𝙠𝙜 𝙪𝙥𝙙𝙖𝙩𝙚 && 𝙥𝙠𝙜 𝙪𝙥𝙜𝙧𝙖𝙙𝙚 -𝙮
+
+2.𝙥𝙠𝙜 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙜𝙞𝙩 -𝙮
+
+3.𝙥𝙠𝙜 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙥𝙮𝙩𝙝𝙤𝙣 -𝙮
+
+4.𝙥𝙠𝙜 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙥𝙮𝙩𝙝𝙤𝙣3 -𝙮
+
+5.𝙥𝙠𝙜 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙥𝙮𝙩𝙝𝙤𝙣 𝙜𝙞𝙩 -𝙮
+
+6.𝙥𝙠𝙜 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙩𝙚𝙧𝙢𝙪𝙭-𝙖𝙥𝙞
+
+7.𝙥𝙞𝙥 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙧𝙚𝙜𝙚𝙭
+
+8.𝙥𝙞𝙥 𝙞𝙣𝙨𝙩𝙖𝙡𝙡 𝙘𝙤𝙡𝙤𝙧𝙖𝙢𝙖
+
+9.git clone https://github.com/Hackerscolonyofficial/HCO-sms-bomber
+
+10.𝙘𝙙 𝙃𝘾𝙊-𝙨𝙢𝙨-𝙗𝙤𝙢𝙗𝙚𝙧
+
+11.𝙘𝙝𝙢𝙤𝙙 +𝙭 *
+
+12../𝙞𝙣𝙨𝙩𝙖𝙡𝙡.𝙨𝙝
+  </div>
+  
+    <div class="command" onclick="copyCmd(this)">
+        __________HC-PHISHER___________
+pkg update && pkg upgrade
+pkg install php curl unzip cloudflared -y
+git clone https://github.com/hackerscolonyofficial/hco-phisher
+cd hco-phisher
+chmod +x hco-phisher.sh
+./hco-phisher.sh 
+
+</div>
+
+  <div class="command" onclick="copyCmd(this)">
+        ____________INSTA-REPO___________
+pkg update && pkg upgrade -y
+pkg install python git -y
+git clone https://github.com/yourusername/HCO-InstaReport
+cd HCO-InstaReport
+python main.py 
+  </div>
+
+   <div class="command" onclick="copyCmd(this)">
+        ____________DARK FLY___________
+        Installation :
+pkg install python2
+pkg install git
+git clone https://github.com/Ranginang67/DarkFly-Tool
+cd DarkFly-Tool
+python2 install.py
+DarkFly
+</div>
+
+<div class="command" onclick="copyCmd(this)">
+        _________XploitTOOL______________
+INSTALLATION [Termux]
+apt update
+apt upgrade
+pkg install python
+pkg install python2
+pkg install git
+git clone https://github.com/xploitstech/Xteam
+ls
+cd Xteam
+pip3 install -r requirements.txt
+chmod +x *
+bash setup.sh
+bash Xteam.sh
+  </div>
+
+  <button class="btn" onclick="logout()">⚡ LOGOUT</button>
+</div>
+
+<!-- LOGOUT SCREEN -->
+<div id="logoutScreen" class="container">
+  <div class="logout-text">
+    ⚡ THANKS FOR USING <br> SUCCESFULLY LOG-OUT RED_ZONE-TERMUX ⚡
+  </div>
+</div>
+
+<script>
+let users = {};
+
+// Register
+function register() {
+  let u = username.value;
+  let p = password.value;
+
+  if (u && p) {
+    users[u] = p;
+    alert("NEW USER REGIRSTATION DONE!");
+  }
+}
+
+// Login
+function login() {
+  let u = username.value;
+  let p = password.value;
+
+  if (users[u] === p) {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+  } else {
+    alert("USER NOT REGISTERED");
+  }
+}
+
+// Copy command
+function copyCmd(el) {
+  navigator.clipboard.writeText(el.innerText);
+  el.classList.add("copied");
+
+  setTimeout(() => {
+    el.classList.remove("copied");
+  }, 500);
+}
+
+// Logout with animation
+function logout() {
+  document.getElementById("dashboard").style.display = "none";
+
+  let screen = document.getElementById("logoutScreen");
+  screen.style.display = "flex";
+
+  setTimeout(() => {
+    screen.style.display = "none";
+    document.getElementById("loginPage").style.display = "flex";
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
